@@ -21,8 +21,8 @@ public class LoginModal extends HomePage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"loginusername\"]")
     WebElement usernameInput;
 
-   // @FindBy(how = How.XPATH, using ="//*[@id=\"signin2\"]")
-    //WebElement loginLink;
+   @FindBy(how = How.XPATH, using ="//*[@id=\"login2\"]")
+   WebElement loginLink;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"loginpassword\"]")
     WebElement passwdInput;
@@ -30,15 +30,14 @@ public class LoginModal extends HomePage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"logInModal\"]/div/div/div[3]/button[2]")
     WebElement loginBtn;
 
-    @FindBy(how = How.ID, using = "sb_form_q")
-    WebElement cancelBtn;
+    //@FindBy(how = How.ID, using = "sb_form_q")
+    //WebElement cancelBtn;
 
     //WebElement chromeAlert??
-    public Alert loginResultAlert;
 
     public LoginModal(WebDriver driver){
         super(driver);
-        loginLink.click();
+        //loginLink.click();
     }
 
     private void setUsername (String username) {
@@ -49,14 +48,12 @@ public class LoginModal extends HomePage {
         passwdInput.sendKeys(passwd);
     }
 
-    public void cancellogin(){
-        cancelBtn.click();
-    }
 
     public void openPopUp(){
+        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"login2\"]")));
         Actions actions = new Actions(driver);
         actions.moveToElement(loginLink).click().build().perform();
-        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"logInModal\"]/div/div/div[3]/button[2]")));
+        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"logInModal\"]/div/div")));
     }
 
     public void login(String username, String passwd){
@@ -64,11 +61,8 @@ public class LoginModal extends HomePage {
         setPassword(passwd);
         loginBtn.click();
 
-        new WebDriverWait(driver, Duration.ofSeconds(30000))
-                .ignoring(NoAlertPresentException.class)
-                .until(ExpectedConditions.alertIsPresent());
 
-        loginResultAlert = driver.switchTo().alert();
+        //loginResultAlert = driver.switchTo().alert();
 //        al.accept();
     }
 }
