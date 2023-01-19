@@ -5,12 +5,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.UUID;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
@@ -32,10 +30,6 @@ public class SignUpModal extends HomePage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"signInModal\"]/div/div/div[3]/button[2]")
     WebElement signUpBtn;
 
-    @FindBy(how = How.ID, using = "sb_form_q")
-    WebElement cancelBtn;
-
-    //WebElement chromeAlert??
     public Alert signUpResultAlert;
 
     public SignUpModal(WebDriver driver){
@@ -51,9 +45,6 @@ public class SignUpModal extends HomePage {
         passwdInput.sendKeys(passwd);
     }
 
-    public void cancelSignUp(){
-        cancelBtn.click();
-    }
 
     public void openPopUp(){
         Actions actions = new Actions(driver);

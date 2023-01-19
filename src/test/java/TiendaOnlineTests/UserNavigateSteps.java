@@ -28,9 +28,12 @@ public class UserNavigateSteps {
 
     @Test
     public void should_navigate(){
+        homePage.openPage();
+
         homePage.phonesLink.click();
         homePage.laptopsLink.click();
         homePage.monitorsLink.click();
+
         assertTrue(true);
     }
 

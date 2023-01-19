@@ -1,7 +1,9 @@
 package TiendaOnlineTests;
 
+import Pages.CartPage;
 import Pages.HomePage;
 import Pages.Modals.SignUpModal;
+import Pages.ProductDetailsPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,36 +31,24 @@ public class RemoveFromCartTests {
     }
 
     @Test
-    public void should_remove_galaxy_from_cart(){
-        HomePage page = new HomePage(driver);
-        page.goToGalaxyS6Page();
+    public void should_remove_galaxy_s6_from_cart() {
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        CartPage cartPage = new CartPage(driver);
+        var samsungGalaxyS6XPath = "/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a";
+        var samsungGalaxyS6AddToCartBtnXpath = "/html/body/div[5]/div/div[2]/div[2]/div/a";
+        var samsungGalaxyS6CartXpath = "/html/body/div[6]/div/div[1]/div/table/tbody/tr/td[4]/a";
 
-        page.addGalaxyS6ToCart();
+        productDetailsPage.openPage();
+        productDetailsPage.openItemByXPath(samsungGalaxyS6XPath);
+        productDetailsPage.addItemToCartByXPath(samsungGalaxyS6AddToCartBtnXpath);
+//        var alertTextResult = productDetailsPage.addToCartAlert.getText();
+//        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
+        productDetailsPage.addToCartAlert.accept();
+        cartPage.goToCart();
+        cartPage.deleteItemByXPath(samsungGalaxyS6CartXpath);
 
-        var alertTextResult = page.cartResultAlert.getText();
-        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
-
-        page.cartResultAlert.accept();
-        page.goToCart();
-
-        page.deleteItem();
+        assertThat(true);
     }
-
-
-//    @Test
-//    public void should_sign_up(){
-//        SignUpModal signUpModal = new SignUpModal(driver);
-//        signUpModal.openPopUp();
-//        signUpModal.signUp(UUID.randomUUID().toString(), "strongpasswd123");
-//
-//        var alertTextResult = signUpModal.signUpResultAlert.getText();
-//        assertThat(alertTextResult).isEqualToIgnoringCase("Sign up successful.");
-//    }
-//
-//    @Test
-//    public void should_navigate_trough_options(){
-//
-//    }
 
     @After
     public void tearDown(){

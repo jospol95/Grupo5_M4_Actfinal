@@ -24,15 +24,12 @@ public class HomePage {
 
     public WebDriverWait wait;
 
-    public Alert cartResultAlert;
-    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a")
-    public WebElement galaxy_s6_link;
+//    public Alert cartResultAlert;
+//    @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a")
+//    public WebElement galaxy_s6_link;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[2]/div[2]/div/a")
     public WebElement add_to_card_btn;
-
-    @FindBy(how = How.XPATH, using = "/html/body/nav/div/div/ul/li[4]/a")
-    public WebElement cart_menu_link;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[6]/div/div[1]/div/table/tbody/tr/td[4]/a")
     public WebElement delete_link;
@@ -41,6 +38,9 @@ public class HomePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         PageFactory.initElements(driver,this);
+    }
+
+    public void openPage(){
         driver.get("https://www.demoblaze.com/index.html");
     }
 
@@ -48,28 +48,32 @@ public class HomePage {
         searchBar.sendKeys(value + Keys.ENTER);
     }
 
-    public void addGalaxyS6ToCart(){
-        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")));
-        add_to_card_btn.click();
+//    public void addItemToCartByXpath(String locator){
+//        wait.until(presenceOfElementLocated(By.xpath(locator)));
+//    }
+//
+//    public void addGalaxyS6ToCart(){
+//        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")));
+//        add_to_card_btn.click();
+//
+//        new WebDriverWait(driver, Duration.ofSeconds(30000))
+//                .ignoring(NoAlertPresentException.class)
+//                .until(ExpectedConditions.alertIsPresent());
+//
+//        cartResultAlert = driver.switchTo().alert();
+//    }
 
-        new WebDriverWait(driver, Duration.ofSeconds(30000))
-                .ignoring(NoAlertPresentException.class)
-                .until(ExpectedConditions.alertIsPresent());
+//    public void goToGalaxyS6Page(){
+//        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a")));
+//        galaxy_s6_link.click();
+//    }
 
-        cartResultAlert = driver.switchTo().alert();
-    }
+//    public void goToCart(){
+//        cart_menu_link.click();
+//    }
 
-    public void goToGalaxyS6Page(){
-        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a")));
-        galaxy_s6_link.click();
-    }
-
-    public void goToCart(){
-        cart_menu_link.click();
-    }
-
-    public void deleteItem(){
-        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr/td[4]/a")));
-        delete_link.click();
-    }
+//    public void deleteItem(){
+//        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr/td[4]/a")));
+//        delete_link.click();
+//    }
 }

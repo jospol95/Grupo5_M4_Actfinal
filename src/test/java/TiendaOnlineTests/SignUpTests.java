@@ -30,6 +30,7 @@ public class SignUpTests {
     @Test
     public void should_sign_up(){
         SignUpModal signUpModal = new SignUpModal(driver);
+        signUpModal.openPage();
         signUpModal.openPopUp();
         signUpModal.signUp(UUID.randomUUID().toString(), "strongpasswd123");
 
