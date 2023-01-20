@@ -25,6 +25,7 @@ public class SignUpTests {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
     }
 
     @Test

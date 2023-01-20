@@ -27,6 +27,7 @@ public class LoginTests {
     //No necesario para login, no hay popUp
     public void should_login(){
         LoginModal loginModal = new LoginModal(driver);
+        loginModal.openPage();
         loginModal.openPopUp();
         loginModal.login( "test", "test");
 

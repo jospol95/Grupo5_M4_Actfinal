@@ -41,8 +41,8 @@ public class RemoveFromCartTests {
         productDetailsPage.openPage();
         productDetailsPage.openItemByXPath(samsungGalaxyS6XPath);
         productDetailsPage.addItemToCartByXPath(samsungGalaxyS6AddToCartBtnXpath);
-//        var alertTextResult = productDetailsPage.addToCartAlert.getText();
-//        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
+        var alertTextResult = productDetailsPage.addToCartAlert.getText();
+        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
         productDetailsPage.addToCartAlert.accept();
         cartPage.goToCart();
         cartPage.deleteItemByXPath(samsungGalaxyS6CartXpath);

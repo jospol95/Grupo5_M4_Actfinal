@@ -47,10 +47,11 @@ public class SignUpModal extends HomePage {
 
 
     public void openPopUp(){
-        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"signin2\"]")));
+        wait.until(presenceOfElementLocated(By.xpath("/html/body/nav/div[1]/ul/li[8]")));
         Actions actions = new Actions(driver);
         actions.moveToElement(signUpLink).click().build().perform();
-        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"signInModal\"]/div/div")));
+        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[2]/div/div")));
+
     }
     //*[@id="logInModal"]/div/div
     public void signUp(String username, String passwd){
