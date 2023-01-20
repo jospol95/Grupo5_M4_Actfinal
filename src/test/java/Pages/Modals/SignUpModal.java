@@ -34,7 +34,7 @@ public class SignUpModal extends HomePage {
 
     public SignUpModal(WebDriver driver){
         super(driver);
-        signUpLink.click();
+//        signUpLink.click();
     }
 
     private void setUsername (String username) {
@@ -47,11 +47,12 @@ public class SignUpModal extends HomePage {
 
 
     public void openPopUp(){
+        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"signin2\"]")));
         Actions actions = new Actions(driver);
         actions.moveToElement(signUpLink).click().build().perform();
         wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"signInModal\"]/div/div")));
     }
-
+    //*[@id="logInModal"]/div/div
     public void signUp(String username, String passwd){
         setUsername(username);
         setPassword(passwd);
