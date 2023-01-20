@@ -13,6 +13,9 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 
 public class HomePage {
     public WebDriver driver;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"navbarExample\"]/ul/li[1]/a")
+    public WebElement homeLink;
     @FindBy(how = How.ID, using = "sb_form_q")
     WebElement searchBar;
     @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[2]")

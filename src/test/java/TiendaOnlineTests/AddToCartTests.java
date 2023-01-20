@@ -1,13 +1,12 @@
 package TiendaOnlineTests;
 
-import Pages.Modals.AddToCartModal;
+import Pages.CartPage;
+import Pages.ProductDetailsPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,13 +21,41 @@ public class AddToCartTests {
     }
 
     @Test
-    public void should_sign_up(){
-        AddToCartModal addToCartModal = new AddToCartModal(driver);
-        addToCartModal.openProducts();
-        addToCartModal.addToCart(UUID.randomUUID().toString(), "strongpasswd123");
+    public void adding_products(){
+        ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
+        CartPage cartPage = new CartPage(driver);
+        var samsungGalaxyS6XPath = "/html/body/div[5]/div/div[2]/div/div[1]/div/div/h4/a";
+        var samsungGalaxyS6AddToCartBtnXpath = "/html/body/div[5]/div/div[2]/div[2]/div/a";
 
-        var alertTextResult = addToCartModal.addToCartResultAlert.getText();
-        assertThat(alertTextResult).isEqualToIgnoringCase("Product added.");
+        productDetailsPage.openPage();
+        productDetailsPage.openItemByXPath(samsungGalaxyS6XPath);
+        productDetailsPage.addItemToCartByXPath(samsungGalaxyS6AddToCartBtnXpath);
+        var alertTextResult = productDetailsPage.addToCartAlert.getText();
+        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
+        productDetailsPage.addToCartAlert.accept();
+        productDetailsPage.homeLink.click();
+
+        var samsungGalaxyS7XPath = "/html/body/div[5]/div/div[2]/div/div[4]/div/div/h4/a";
+        var samsungGalaxyS7AddToCartBtnXpath = "/html/body/div[5]/div/div[2]/div[2]/div/a";
+
+        productDetailsPage.openPage();
+        productDetailsPage.openItemByXPath(samsungGalaxyS7XPath);
+        productDetailsPage.addItemToCartByXPath(samsungGalaxyS7AddToCartBtnXpath);
+        productDetailsPage.addToCartAlert.getText();
+        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
+        productDetailsPage.addToCartAlert.accept();
+        productDetailsPage.homeLink.click();
+
+        var sonyVaioi7XPath = "/html/body/div[5]/div/div[2]/div/div[9]/div/div/h4/a";
+        var sonyVaioi7AddToCartBtnXpath = "/html/body/div[5]/div/div[2]/div[2]/div/a";
+
+        productDetailsPage.openPage();
+        productDetailsPage.openItemByXPath(sonyVaioi7XPath);
+        productDetailsPage.addItemToCartByXPath(sonyVaioi7AddToCartBtnXpath);
+        productDetailsPage.addToCartAlert.getText();
+        assertThat(alertTextResult).isEqualToIgnoringCase("Product added");
+        productDetailsPage.addToCartAlert.accept();
+        productDetailsPage.homeLink.click();
     }
 
     @After
