@@ -9,12 +9,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 public class BuyItemsTests {
 
@@ -77,11 +79,13 @@ public void buying_products(){
     buyItemsModal.openPopUp();
 
     buyItemsModal.buyItem("test", "Spain", "Palma de Mallorca", "2344543534231", "08", "2023");
+
     //var alertTextResult = buyItemsModal.cartResultAlert.getText();
     //assertThat(alertTextResult).isEqualToIgnoringCase("Thank you for your purchase!");
 
 
 }
+
 
     //@After
     //public void tearDown(){

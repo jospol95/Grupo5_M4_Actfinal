@@ -83,9 +83,7 @@ public class BuyItemsModal extends HomePage {
         setYear(year);
         purchaseBtn.click();
 
-        new WebDriverWait(driver, Duration.ofSeconds(30000))
-                .ignoring(NoAlertPresentException.class)
-                .until(ExpectedConditions.alertIsPresent());
+        wait.until(presenceOfElementLocated(By.xpath("/html/body/div[10]/h2")));
 
 //        al.accept();
     }
