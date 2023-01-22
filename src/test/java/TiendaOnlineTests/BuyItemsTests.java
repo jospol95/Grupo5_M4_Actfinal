@@ -10,9 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -68,14 +72,17 @@ public class BuyItemsTests {
         productDetailsPage.addToCartAlert.accept();
         productDetailsPage.cartLink.click();
         productDetailsPage.cartBtnOrder.click();
+
     }
+    @Test
 public void buying_products(){
 
     ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
 
-    var cartModal = "/html/body/div[3]/div/div";
+    var cartResultAlert = "/html/body/div[10]/h2";
+
+
     BuyItemsModal buyItemsModal = new BuyItemsModal(driver);
-    buyItemsModal.openPage();
     buyItemsModal.openPopUp();
 
     buyItemsModal.buyItem("test", "Spain", "Palma de Mallorca", "2344543534231", "08", "2023");
@@ -87,8 +94,8 @@ public void buying_products(){
 }
 
 
-    //@After
-    //public void tearDown(){
-       // driver.quit();
-    //}
+    @After
+    public void tearDown(){
+        driver.quit();
+    }
 }

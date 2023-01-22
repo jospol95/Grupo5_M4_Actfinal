@@ -50,7 +50,6 @@ public class BuyItemsModal extends HomePage {
     private void setUsername (String username) {
         nameInput.sendKeys(username);
     }
-
     private void setCountry (String country) {
         countryInput.sendKeys(country);
     }
