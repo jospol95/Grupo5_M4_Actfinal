@@ -1,5 +1,7 @@
 package step_definitions;
 
+import Pages.CartPage;
+import Pages.HomePage;
 import Pages.Modals.LoginModal;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -22,7 +24,6 @@ public class LoginSteps {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
-        LoginModal = new LoginModal(driver);
     }
     @Given("user navigates to the user login page")
     public void user_navigates_to_the_user_login_page() {
@@ -36,7 +37,7 @@ public class LoginSteps {
     public void user_login_in_the_website() {
        // var alertTextResult = LoginModal.LoginResultAlert.getText();
         //assertThat(alertTextResult).isEqualToIgnoringCase("Sign up successful.");
-        //wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"logInModal\"]/div/div")));
+        //wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"nameofuser\"]")));
     }
     @After
     public void tearDown(){
