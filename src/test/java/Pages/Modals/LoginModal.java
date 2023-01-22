@@ -50,7 +50,7 @@ public class LoginModal extends HomePage {
 
 
     public void openPopUp(){
-        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"login2\"]")));
+
         Actions actions = new Actions(driver);
         actions.moveToElement(loginLink).click().build().perform();
         wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"logInModal\"]/div/div")));

@@ -1,7 +1,6 @@
 package TiendaOnlineTests;
 
 import Pages.Modals.LoginModal;
-import Pages.Modals.SignUpModal;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
