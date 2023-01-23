@@ -16,6 +16,12 @@ public class HomePage {
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"navbarExample\"]/ul/li[1]/a")
     public WebElement homeLink;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"navbarExample\"]/ul/li[4]/a")
+    public WebElement cartLink;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[6]/div/div[2]/button")
+    public WebElement cartBtnOrder;
     @FindBy(how = How.ID, using = "sb_form_q")
     WebElement searchBar;
     @FindBy(how = How.XPATH, using = "/html/body/div[5]/div/div[1]/div/a[2]")

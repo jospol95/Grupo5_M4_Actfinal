@@ -20,7 +20,7 @@ public class UserNavigateSteps {
     String firstPhoneName, firstComputerName, firstMonitorName;
 
 
-    @Before
+    @Before("@userNavigateTest")
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
@@ -60,7 +60,7 @@ public class UserNavigateSteps {
         assertThat(firstMonitorName).isEqualToIgnoringCase("Apple monitor 24");
     }
 
-    @After
+    @After("@userNavigateTest")
     public void tearDown(){
         driver.quit();
     }

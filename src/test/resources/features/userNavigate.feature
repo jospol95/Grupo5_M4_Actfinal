@@ -1,3 +1,4 @@
+@userNavigateTest
 Feature: userNavigate
   In order to navigate
   As a User

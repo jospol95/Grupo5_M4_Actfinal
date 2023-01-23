@@ -1,3 +1,4 @@
+@userSignUpTest
 Feature: signUp
   In order to sign up
   As a new Customer

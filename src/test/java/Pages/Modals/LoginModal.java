@@ -30,10 +30,9 @@ public class LoginModal extends HomePage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"logInModal\"]/div/div/div[3]/button[2]")
     WebElement loginBtn;
 
-    //@FindBy(how = How.ID, using = "sb_form_q")
-    //WebElement cancelBtn;
-
-    //WebElement chromeAlert??
+    @FindBy(how = How.XPATH, using = "/html/body/nav/div[1]/ul/li[7]/a")
+    public
+    WebElement welcomeUserLink;
 
     public LoginModal(WebDriver driver){
         super(driver);
@@ -50,7 +49,7 @@ public class LoginModal extends HomePage {
 
 
     public void openPopUp(){
-        wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"login2\"]")));
+
         Actions actions = new Actions(driver);
         actions.moveToElement(loginLink).click().build().perform();
         wait.until(presenceOfElementLocated(By.xpath("//*[@id=\"logInModal\"]/div/div")));
@@ -60,9 +59,5 @@ public class LoginModal extends HomePage {
         setUsername(username);
         setPassword(passwd);
         loginBtn.click();
-
-
-        //loginResultAlert = driver.switchTo().alert();
-//        al.accept();
     }
 }
