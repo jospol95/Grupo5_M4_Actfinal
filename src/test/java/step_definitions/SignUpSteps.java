@@ -24,7 +24,7 @@ public class SignUpSteps {
     public void user_navigates_to_the_user_sign_up_page() {
         signUpModal.openPopUp();
     }
-    @When("user enters a correct username and password")
+    @When("user enters a new username and password")
     public void user_enters_a_correct_username_and_password() {
         signUpModal.signUp(UUID.randomUUID().toString(), "strongpasswd123");
     }

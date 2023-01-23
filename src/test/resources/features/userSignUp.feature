@@ -5,5 +5,5 @@ Feature: signUp
 
   Scenario: sign up on the online store
     Given user navigates to the user sign up page
-    When user enters a correct username and password
+    When user enters a new username and password
     Then user signs up in the website

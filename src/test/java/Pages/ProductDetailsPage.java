@@ -29,6 +29,7 @@ public class ProductDetailsPage extends HomePage{
                 .ignoring(NoAlertPresentException.class)
                 .until(ExpectedConditions.alertIsPresent());
 
+
         addToCartAlert = driver.switchTo().alert();
     }
 
