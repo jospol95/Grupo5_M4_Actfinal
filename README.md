@@ -7,3 +7,4 @@ resources > features
 Steps:
 java > step_definitions
 
+Se puede correr cada feature individual haciendo click derecho > Run feature.
